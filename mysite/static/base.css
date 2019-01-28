@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    font-family: 'Handlee', cursive;
+    font-size: 15pt;
+    font-weight: bold;
+    background-color: #efefef;
+    margin: 0;
+}
+.section {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+	margin: 15px 0 0 1%;
+}
+.section:hover {
+	box-shadow: 10px 10px 5px #888888;
+}
+
+/* nav start */
+#nav {
+	text-align: center;
+	height: 25px;
+	padding:1%;
+	margin-right: 1%;
+}
+#nav ul {
+	list-style: none;
+	text-decoration: none;
+    margin: 0;
+    padding: 0;
+    top: 0;
+}
+#nav li {
+    float: left;
+	width: 20%;
+}
+#nav li a {
+    color: gray;
+	text-decoration: none;
+}
+#nav li a:hover:not(.active) {
+    color: indigo;
+}
+#nav .active {
+    color: darkviolet;
+}
+/* nav end */
+
+/* GithubPage start */
+#GithubPage {
+    width: 20%;
+	height: 200px;
+	text-align: center;
+	background-image: url('https://steamuserimages-a.akamaihd.net/ugc/940589036765256715/0C76D5997EBAEC65EB79DCFAD7B93BD704E4282B/');
+	background-size: 100% 100%;
+	float: left;
+}
+#GithubPage p{
+	margin: auto;
+	margin-top: 25px;
+  color: gray;
+}
+#GithubPage a{
+	text-decoration: none;
+}
+#GithubPage p:hover{
+    color: aliceblue;
+}
+/* GithubPage end */
+
+/* header start */
+.img-circle {
+    border: 3px solid white;
+    border-radius: 50%;
+}
+#header_part {
+  padding-top: 20px;
+}
+#header {
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/939447588389291325/2F0B4DB567C2923D8D27A28E4EB5C8BC7FE8435C/");
+    background-size: cover;
+	float: left;
+	width: 77%;
+	height: 200px;
+}
+#header img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+}
+#header p {
+    font-size: 25pt;
+    color: #FFF9E7;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+/* header end */
+
+/* container start */
+#container {
+  float: left;
+  width: 20%;
+  height: 300px;
+}
+/* container end */
+
+/* about start */
+#about {
+	  float: left;
+	  width: 77%;
+	height: 300px;
+	text-align: center;
+}
+/* about end */
+
+/* footer start */
+#contacts img {
+    height: 50px;
+    width: 50px;
+    margin-left: 7px;
+    margin-right: 7px;
+    border-radius: 50%;
+}
+#contacts a {
+	text-decoration: none;
+}
+#contacts {
+	text-align: center;
+    margin: 15px;
+	float: left;
+	width: 98%;
+}
+img:hover {
+    opacity: 0.5;
+}
+/* contacts end */
+
+/* footer start */
+.copyright {
+  margin-right: 20px;
+    font-size: 8pt;
+    text-align: right;
+    color: grey;
+}
+/* footer end */

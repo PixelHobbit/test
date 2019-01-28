@@ -1,0 +1,77 @@
+body {
+    font-family: 'Handlee', cursive;
+    background-color: #efefef;
+    margin: 0;
+}
+a {
+    color: gray;
+	text-decoration: none;
+}
+ a:hover:not(.active) {
+    color: indigo;
+}
+li {
+  list-style: none;
+}
+.section {
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+	margin: 1% 0 0 1%;
+}
+.section:hover {
+	box-shadow: 10px 10px 5px #888888;
+}
+
+/* type_list start */
+#type_list {
+    width: 20%;
+	height: 215px;
+	float: left;
+}
+/* type_list end */
+
+/* header start */
+#header {
+	padding-top: 15px;
+    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/913539890295741473/FACE7A1482305ECEB0A1D85041FD4B7C4DC59635/");
+    background-position: 20% 20%;
+	float: left;
+	width: 77%;
+	height: 200px;
+}
+/* header end */
+
+/* date_list start */
+#date_list {
+  float: left;
+  width: 20%;
+  height: 300px;
+}
+/* date_list end */
+
+/* context start */
+#context {
+	  float: left;
+	  width: 78%;
+	height: 300px;
+  margin-left: 3px;
+}
+#blog_list {
+	max-height: 200px;
+  margin-left: 1%;
+  padding-left: 3%;
+  text-align: center;
+  padding-bottom: 15px;
+}
+#blog_list_none {
+	max-height: 200px;
+}
+/* context end */
+
+/* blog_detail start */
+#blog_detail {
+  width: 70%;
+  margin: auto;
+}
+/* blog_detail end */

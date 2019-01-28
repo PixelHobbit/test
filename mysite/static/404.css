@@ -1,0 +1,12 @@
+.page_not_found {
+  margin: auto;
+  text-align: center;
+  padding-top: 150px;
+}
+a {
+    color: gray;
+	text-decoration: none;
+}
+ a:hover:not(.active) {
+    color: indigo;
+}

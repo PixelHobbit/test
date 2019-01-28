@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    Pixel_Hobbit's site|home
+{% endblock %}
+
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+{% endblock %}
+
+{% block nav_home_active %}active{% endblock %}
+
+{% block content %}
+<!--	GithubPage start -->
+	<div class="section" id="GithubPage">
+		<a href="https://pixelhobbit.github.io/personal-site/"><p>Github <br> Page</p></a>
+	</div>
+	<!--	GithubPage end -->
+
+	<!--	header start -->
+	<div class="section" id="header">
+    <div id="header_part">
+      <img class="img-circle" src="https://steamuserimages-a.akamaihd.net/ugc/954087182940228186/45A9149556AC54A4CAB5D792C46B08C9F5DE8FAA/">
+		  <p>Pixel_Hobbit</p>
+    </div>
+	</div>
+	<!--	header end -->
+
+	<!--	container start -->
+	<div class="section" id="container">
+		<script>
+          // 图表配置
+          var options = {
+              chart: { type: 'line' },
+              title: { text: null },
+              xAxis: {
+                  categories: {{ dates|safe }},   // x 轴分类
+                  tickmarkPlacement: 'on',
+              },
+              yAxis: {
+                  title: { text: null },
+                  labels:{ enabled: false },
+                  gridLineDashStyle: 'Dash',
+              },
+              series: [{                              // 数据列
+                  name: '阅读量',                     // 数据列名
+                  data: {{ read_nums }}               // 数据
+              }],
+              plotOptions: {
+                  line: {
+                      dataLabels: {
+                          enabled: true
+                      }
+                  }
+              },
+              legend: { enabled: false },
+              credits: { enabled: false },
+          };
+          // 图表初始化函数
+          var chart = Highcharts.chart('container', options);
+      </script>
+	</div>
+	<!--	container end -->
+
+	<!--	about start -->
+    <div class="section" id="about">
+      <h1>About</h1>
+      <h3>终于实现了，虽然是一小点。
+        <br>
+        <br>
+        随便看看啦:p</h3>
+    </div>
+  <!--	about end -->
+
+  <!-- contacts start -->
+	<div class="section" id="contacts">
+		<h1>Nothing here !!! </h1>
+    <p> >_< </p>
+	     <div>
+             <a href="https://www.sololearn.com/Profile/7968452" target="_blank">
+                <img alt="SoloLearn" src="https://www.sololearn.com/Uploads/icons/sololearn.png" />
+             </a>
+             <a href="https://www.facebook.com/profile.php?id=100018161568922" target="_blank">
+                 <img alt="Facebook" src="https://www.sololearn.com/Uploads/icons/facebook.png"/>
+             </a>
+             <a href="https://twitter.com/Hobbit233" target="_blank">
+                 <img alt="Twitter" src="https://www.sololearn.com/Uploads/icons/twitter.png" />
+             </a>
+             <a href="https://space.bilibili.com/33571988/#/index" target="_blank">
+                 <img alt="Blibli" src="https://steamuserimages-a.akamaihd.net/ugc/954087182942574811/F24CC12369630CB47FF2245D443AEB9CE266869B/" />
+             </a>
+         </div>
+	 </div>
+    <!-- contacts end -->
+
+    <!-- footer start -->
+	 <div class="copyright">
+            &copy; 2019 My Blog. All rights reserved.
+    </div>
+	<!-- footer end -->
+{% endblock %}
