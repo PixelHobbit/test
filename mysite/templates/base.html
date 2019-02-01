@@ -16,8 +16,8 @@
       		<ul>
       			<li><a class="{% block nav_home_active %}{% endblock %}" href="{% url 'home' %}">Home</a></li>
       			<li><a class="{% block nav_blog_active %}{% endblock %}" href="{% url 'blog_list' %}">Blog</a></li>
-      			<li><a class="{% block nav_share_active %}{% endblock %}" href="{% url '404' %}"><del>Share</del></a></li>
-      			<li><a class="{% block nav_views_active %}{% endblock %}" href="{% url '404' %}"><del>Views</del></a></li>
+      			<li><a class="{% block nav_share_active %}{% endblock %}" href="{% url 'share_list' %}">Share</a></li>
+      			<li><a class="{% block nav_views_active %}{% endblock %}" href="{% url 'view_list' %}">Views</a></li>
       			<li><a class="{% block nav_stars_active %}{% endblock %}" href="{% url '404' %}"><del>Stars</del></a></li>
       		</ul>
       	</div>

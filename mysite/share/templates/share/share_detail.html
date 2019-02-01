@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}{{ share.title }}{% endblock %}
+{% block nav_share_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'share/share.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+<div class="section" id="share_detail">
+  <h1 align=center style="padding-top:50px;">{{ share.title }}</h1>
+  <ul>
+      <li>作者：{{ share.author }}</li>
+      <li>分类：<a href="{% url 'shares_with_type' share.share_type.pk %}">{{ share.share_type }}</a></li>
+      <li>发表日期：{{ share.created_time|date:"M d,Y" }}</li>
+      <li>阅读({{ share.get_read_num }})</li>
+      <li>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href=".">Back→</a></li>
+  </ul>
+  <div align=center>{{ share.content|safe }}</div>
+  <div style="margin-bottom:30px;margin-top:30px;margin-left:40%">
+          上一篇：
+          {% if previous_share %}
+              <a href="{% url 'share_detail' previous_share.pk %}">{{ previous_share.title }}</a>
+          {% else %}
+              没有了
+          {% endif %}
+          下一篇：
+          {% if next_share %}
+              <a href="{% url 'share_detail' next_share.pk %}">{{ next_share.title }}</a>
+          {% else %}
+              没有了
+          {% endif %}
+  </div>
+</div>
+{% endblock %}

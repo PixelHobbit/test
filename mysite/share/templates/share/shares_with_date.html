@@ -1,0 +1,7 @@
+{% extends 'share/share_list.html' %}
+{% block title %}{{ share_type.type_name }}{% endblock %}
+
+{% block share_list_title %}
+    日期归档：{{ shares_with_date }}
+    <a href="{% url 'share_list' %}">查看全部文章</a>
+{% endblock %}

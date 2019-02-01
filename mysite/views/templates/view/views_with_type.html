@@ -1,0 +1,7 @@
+{% extends 'view/view_list.html' %}
+{% block title %}{{ view_type.type_name }}{% endblock %}
+
+{% block view_list_title %}
+    分类：{{ view_type.type_name }}
+    <a href="{% url 'view_list' %}">查看全部文章</a>
+{% endblock %}

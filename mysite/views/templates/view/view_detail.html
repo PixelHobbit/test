@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}{{ view.title }}{% endblock %}
+{% block nav_view_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'view/view.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+<div class="section" id="view_detail">
+  <h1 align=center style="padding-top:50px;">{{ view.title }}</h1>
+  <ul>
+      <li>作者：{{ view.author }}</li>
+      <li>分类：<a href="{% url 'views_with_type' view.view_type.pk %}">{{ view.view_type }}</a></li>
+      <li>发表日期：{{ view.created_time|date:"M d,Y" }}</li>
+      <li>阅读({{ view.get_read_num }})</li>
+      <li>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href=".">Back→</a></li>
+  </ul>
+  <div align=center>{{ view.content|safe }}</div>
+  <div style="margin-bottom:30px;margin-top:30px;margin-left:40%">
+          上一篇：
+          {% if previous_view %}
+              <a href="{% url 'view_detail' previous_view.pk %}">{{ previous_view.title }}</a>
+          {% else %}
+              没有了
+          {% endif %}
+          下一篇：
+          {% if next_view %}
+              <a href="{% url 'view_detail' next_view.pk %}">{{ next_view.title }}</a>
+          {% else %}
+              没有了
+          {% endif %}
+  </div>
+</div>
+{% endblock %}

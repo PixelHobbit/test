@@ -19,7 +19,7 @@
       <li>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　<a href=".">Back→</a></li>
   </ul>
   <div align=center>{{ blog.content|safe }}</div>
-  <div  align=center style="margin-bottom:30px;margin-top:30px;">
+  <div style="margin-bottom:30px;margin-top:30px;margin-left:40%;">
           上一篇：
           {% if previous_blog %}
               <a href="{% url 'blog_detail' previous_blog.pk %}">{{ previous_blog.title }}</a>

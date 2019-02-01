@@ -57,24 +57,24 @@ li {
 	height: 300px;
   margin-left: 3px;
 }
-#blog_list {
+#view_list {
 	max-height: 200px;
   margin-left: 1%;
   padding-left: 3%;
   text-align: center;
   padding-bottom: 15px;
 }
-#blog_list_none {
+#view_list_none {
 	max-height: 200px;
 }
 /* context end */
 
-/* blog_detail start */
-#blog_detail {
+/* view_detail start */
+#view_detail {
   width: 70%;
   margin: auto;
 }
-/* blog_detail end */
+/* view_detail end */
 
 /* pagination start */
 #pagination {

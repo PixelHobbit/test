@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}share{% endblock %}
+{% block nav_shares_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'share/share.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+<!--	type_list start -->
+<div class="section" id="type_list">
+ <div>
+   <br>
+   　　文章分类
+ </div>
+   <hr width= 95% color=gray>
+     <div>
+         <ul>
+             {% for share_type in share_types %}
+                 <li>
+                     <a href="{% url 'shares_with_type' share_type.pk %}">
+                         {{ share_type.type_name }} ({{ share_type.share_count }})
+                     </a>
+                 </li>
+             {% empty %}
+                 <li>暂无分类</li>
+             {% endfor %}
+         </ul>
+     </div>
+</div>
+<!--	type_list end -->
+
+<!--	hader start -->
+<div class="section" id="header">
+</div>
+<!--	hader end -->
+
+<!--	date_list start -->
+<div class="section" id="date_list">
+     <div>
+       <br>
+       　　日期归档</div>
+       <hr width= 95% color=gray>
+     <div>
+         <ul>
+             {% for share_date, share_count in share_dates.items %}
+                 <li>
+                     <a href="{% url 'shares_with_date' share_date.year share_date.month %}">
+                         {{ share_date|date:"Y年m月" }} ({{ share_count }})
+                     </a>
+                 </li>
+             {% endfor %}
+         </ul>
+     </div>
+</div>
+<!--	date_list end -->
+
+<!--	context start -->
+  <div id="context">
+          {% for share in shares %}
+              <div class="section" id="share_list">
+                  <h3 style="padding-top:15px"><a href="{% url 'share_detail' share.pk %}">{{ share.title }}</a></h3>
+                  <p align= left>　
+                    <a href="{% url 'shares_with_type' share.share_type.pk %}">{{ share.share_type }}</a>
+                    阅读({{ share.get_read_num }})
+                  </p>
+                  <p align= left>　{{ share.content|striptags|truncatechars:120 }}</p>
+                  <h3 align=right style="padding-right:3%;">{{ share.created_time|date:"M d,Y" }}</h3>
+              </div>
+          {% empty %}
+              <div class="section" id="share_list_none">
+                  <h3>暂无文章，敬请期待</h3>
+              </div>
+          {% endfor %}
+          <!-- pagination start  -->
+          <div id="pagination">
+            <ul align=center>
+                {# 上一页 #}
+                <li>
+                    {% if page_of_shares.has_previous %}
+                        <a href="?page={{ page_of_shares.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    {% else %}
+                        <span aria-hidden="true">&laquo;</span>
+                    {% endif %}
+                </li>
+                {# 全部页码 #}
+                {% for page_num in page_range %}
+                    {% if page_num == page_of_shares.number %}
+                        <li class="active"><span>{{ page_num }}</span></li>
+                    {% else %}
+                        {% if page_num == '...' %}
+                            <li><span>{{ page_num }}</span></li>
+                        {% else %}
+                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {# 下一页 #}
+                <li>
+                    {% if page_of_shares.has_next %}
+                        <a href="?page={{ page_of_shares.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    {% else %}
+                        <span aria-hidden="true">&raquo;</span>
+                    {% endif %}
+                </li>
+            </ul>
+            <p>
+                共有{{ page_of_shares.paginator.count }}篇文章，
+                当前第{{ page_of_shares.number }}页，共{{ page_of_shares.paginator.num_pages }}页
+            </p>
+          </div>
+  </div>
+<!--	context end -->
+{% endblock %}

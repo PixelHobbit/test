@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}view{% endblock %}
+{% block nav_views_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'view/view.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+<!--	type_list start -->
+<div class="section" id="type_list">
+ <div>
+   <br>
+   　　文章分类
+ </div>
+   <hr width= 95% color=gray>
+     <div>
+         <ul>
+             {% for view_type in view_types %}
+                 <li>
+                     <a href="{% url 'views_with_type' view_type.pk %}">
+                         {{ view_type.type_name }} ({{ view_type.view_count }})
+                     </a>
+                 </li>
+             {% empty %}
+                 <li>暂无分类</li>
+             {% endfor %}
+         </ul>
+     </div>
+</div>
+<!--	type_list end -->
+
+<!--	hader start -->
+<div class="section" id="header">
+</div>
+<!--	hader end -->
+
+<!--	date_list start -->
+<div class="section" id="date_list">
+     <div>
+       <br>
+       　　日期归档</div>
+       <hr width= 95% color=gray>
+     <div>
+         <ul>
+             {% for view_date, view_count in view_dates.items %}
+                 <li>
+                     <a href="{% url 'views_with_date' view_date.year view_date.month %}">
+                         {{ view_date|date:"Y年m月" }} ({{ view_count }})
+                     </a>
+                 </li>
+             {% endfor %}
+         </ul>
+     </div>
+</div>
+<!--	date_list end -->
+
+<!--	context start -->
+  <div id="context">
+          {% for view in views %}
+              <div class="section" id="view_list">
+                  <h3 style="padding-top:15px"><a href="{% url 'view_detail' view.pk %}">{{ view.title }}</a></h3>
+                  <p align= left>　
+                    <a href="{% url 'views_with_type' view.view_type.pk %}">{{ view.view_type }}</a>
+                    阅读({{ view.get_read_num }})
+                  </p>
+                  <p align= left>　{{ view.content|striptags|truncatechars:120 }}</p>
+                  <h3 align=right style="padding-right:3%;">{{ view.created_time|date:"M d,Y" }}</h3>
+              </div>
+          {% empty %}
+              <div class="section" id="view_list_none">
+                  <h3>暂无文章，敬请期待</h3>
+              </div>
+          {% endfor %}
+          <!-- pagination start  -->
+          <div id="pagination">
+            <ul align=center>
+                {# 上一页 #}
+                <li>
+                    {% if page_of_views.has_previous %}
+                        <a href="?page={{ page_of_views.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    {% else %}
+                        <span aria-hidden="true">&laquo;</span>
+                    {% endif %}
+                </li>
+                {# 全部页码 #}
+                {% for page_num in page_range %}
+                    {% if page_num == page_of_views.number %}
+                        <li class="active"><span>{{ page_num }}</span></li>
+                    {% else %}
+                        {% if page_num == '...' %}
+                            <li><span>{{ page_num }}</span></li>
+                        {% else %}
+                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {# 下一页 #}
+                <li>
+                    {% if page_of_views.has_next %}
+                        <a href="?page={{ page_of_views.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    {% else %}
+                        <span aria-hidden="true">&raquo;</span>
+                    {% endif %}
+                </li>
+            </ul>
+            <p>
+                共有{{ page_of_views.paginator.count }}篇文章，
+                当前第{{ page_of_views.number }}页，共{{ page_of_views.paginator.num_pages }}页
+            </p>
+          </div>
+  </div>
+<!--	context end -->
+{% endblock %}
