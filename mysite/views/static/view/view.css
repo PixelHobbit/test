@@ -58,14 +58,22 @@ li {
   margin-left: 3px;
 }
 #view_list {
-	max-height: 200px;
-  margin-left: 1%;
-  padding-left: 3%;
+	min-height: 200px;
+  padding-left:1.5%;
   text-align: center;
   padding-bottom: 15px;
 }
 #view_list_none {
-	max-height: 200px;
+	min-height: 200px;
+}
+#view_list img {
+  border-radius: 10px;
+  width: 20%;
+  margin-top: 2%;
+  float: left;
+}
+#view_list p {
+  padding-left: 10%;
 }
 /* context end */
 

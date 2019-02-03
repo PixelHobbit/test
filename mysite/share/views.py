@@ -46,7 +46,7 @@ def share_list(request):
     return render_to_response('share/share_list.html', context)
 
 def shares_with_type(request, share_type_pk):
-    share_type = get_object_or_404(shareType, pk=share_type_pk)
+    share_type = get_object_or_404(ShareType, pk=share_type_pk)
     shares_all_list = Share.objects.filter(share_type=share_type)
     context = get_share_list_common_data(request, shares_all_list)
     context['share_type'] = share_type

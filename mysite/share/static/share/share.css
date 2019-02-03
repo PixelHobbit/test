@@ -57,27 +57,28 @@ li {
 	height: 300px;
   margin-left: 3px;
 }
-#view_list {
-	max-height: 200px;
-  margin-left: 1%;
-  padding-left: 3%;
+#share_list {
+  float: left;
+  width: 23.95%;
   text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
-#view_list_none {
-	max-height: 200px;
+#share_list_none {
+	min-height: 200px;
 }
 /* context end */
 
-/* view_detail start */
-#view_detail {
+/* share_detail start */
+#share_detail {
   width: 70%;
   margin: auto;
 }
-/* view_detail end */
+/* share_detail end */
 
 /* pagination start */
 #pagination {
+  width: 100%;
+  float: left;
 	text-align: center;
 }
 #pagination ul {

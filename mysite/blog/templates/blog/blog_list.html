@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Blog{% endblock %}
+{% block title %}Pixel_Hobbit's site|Blog{% endblock %}
 {% block nav_blog_active %}active{% endblock %}
 
 {% load staticfiles %}
@@ -63,15 +63,15 @@
               <div class="section" id="blog_list">
                   <h3 style="padding-top:15px"><a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
                   <p align= left>　
-                    <a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>
-                    阅读({{ blog.get_read_num }})
+                    类别:<a href="{% url 'blogs_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>
+                     阅读({{ blog.get_read_num }})
                   </p>
-                  <p align= left>　{{ blog.content|striptags|truncatechars:120 }}</p>
+                  <p align= left>　 {{ blog.content|striptags|truncatechars:120 }}</p>
                   <h3 align=right style="padding-right:3%;">{{ blog.created_time|date:"M d,Y" }}</h3>
               </div>
           {% empty %}
               <div class="section" id="blog_list_none">
-                  <h3>暂无博客，敬请期待</h3>
+                  <h3 style="padding-top:50px;text-align:center;">暂无博客，敬请期待</h3>
               </div>
           {% endfor %}
           <!-- pagination start  -->

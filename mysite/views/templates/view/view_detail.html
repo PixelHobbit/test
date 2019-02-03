@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ view.title }}{% endblock %}
+{% block title %}Pixel_Hobbit's site|View|{{ view.title }}{% endblock %}
 {% block nav_view_active %}active{% endblock %}
 
 {% load staticfiles %}
@@ -26,6 +26,7 @@
           {% else %}
               没有了
           {% endif %}
+          <br>
           下一篇：
           {% if next_view %}
               <a href="{% url 'view_detail' next_view.pk %}">{{ next_view.title }}</a>

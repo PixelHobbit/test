@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'blog',
     'read_statistics',
     'views',
-    'share'
+    'share',
+    'notice'
 ]
 
 MIDDLEWARE = [
@@ -137,6 +138,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = 'upload/'
 
 # 自定义参数
-EACH_PAGE_BLOGS_NUMBER = 7
-EACH_PAGE_VIEWS_NUMBER = 7
-EACH_PAGE_SHARES_NUMBER = 7
+EACH_PAGE_BLOGS_NUMBER = 3
+EACH_PAGE_VIEWS_NUMBER = 3
+EACH_PAGE_SHARES_NUMBER = 8

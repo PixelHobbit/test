@@ -26,6 +26,7 @@
           {% else %}
               没有了
           {% endif %}
+          <br>
           下一篇：
           {% if next_share %}
               <a href="{% url 'share_detail' next_share.pk %}">{{ next_share.title }}</a>

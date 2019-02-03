@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}view{% endblock %}
+{% block title %}Pixel_Hobbit's site|View{% endblock %}
 {% block nav_views_active %}active{% endblock %}
 
 {% load staticfiles %}
@@ -61,17 +61,18 @@
   <div id="context">
           {% for view in views %}
               <div class="section" id="view_list">
+                <img src="{{view.image.url}}">
                   <h3 style="padding-top:15px"><a href="{% url 'view_detail' view.pk %}">{{ view.title }}</a></h3>
                   <p align= left>　
-                    <a href="{% url 'views_with_type' view.view_type.pk %}">{{ view.view_type }}</a>
-                    阅读({{ view.get_read_num }})
+                    类别:<a href="{% url 'views_with_type' view.view_type.pk %}">{{ view.view_type }}</a>
+                    | 阅读({{ view.get_read_num }})
                   </p>
-                  <p align= left>　{{ view.content|striptags|truncatechars:120 }}</p>
+                  <p align= left>　 {{ view.content|striptags|truncatechars:120 }}</p>
                   <h3 align=right style="padding-right:3%;">{{ view.created_time|date:"M d,Y" }}</h3>
               </div>
           {% empty %}
               <div class="section" id="view_list_none">
-                  <h3>暂无文章，敬请期待</h3>
+                  <h3 style="padding-top:50px;text-align:center;">暂无文章，敬请期待</h3>
               </div>
           {% endfor %}
           <!-- pagination start  -->

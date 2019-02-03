@@ -12,6 +12,7 @@ class ShareType(models.Model):
 class Share(models.Model, ReadNumExpandMethod):
     title = models.CharField(max_length=50)
     share_type = models.ForeignKey(ShareType, on_delete=models.DO_NOTHING)
+    image = models.ImageField(default='default.png',upload_to='Images/')
     content = RichTextUploadingField()
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     created_time = models.DateTimeField(auto_now_add=True)

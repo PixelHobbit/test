@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    Pixel_Hobbit's site|home
+    Pixel_Hobbit's site|Home
 {% endblock %}
 
 {% block header_extends %}
@@ -66,11 +66,11 @@
 
 	<!--	about start -->
     <div class="section" id="about">
-      <h1>About</h1>
-      <h3>终于实现了，虽然是一小点。
-        <br>
-        <br>
-        随便看看啦:p</h3>
+      {% for notice in notice.all %}
+        <h1>{{ notice.title }}</h1>
+        <h2>{{ notice.text }}</h2>
+        <h4 align=right style=" padding-right:50px;padding-top:50px;">{{ notice.date }}</h4>
+      {% endfor %}
     </div>
   <!--	about end -->
 
