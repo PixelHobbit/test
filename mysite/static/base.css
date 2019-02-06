@@ -53,7 +53,7 @@ body {
     width: 20%;
 	height: 200px;
 	text-align: center;
-	background-image: url('https://steamuserimages-a.akamaihd.net/ugc/940589036765256715/0C76D5997EBAEC65EB79DCFAD7B93BD704E4282B/');
+	background-image: url('/static/home/Github_BG.png');
 	background-size: 100% 100%;
 	float: left;
 }
@@ -79,8 +79,9 @@ body {
   padding-top: 20px;
 }
 #header {
-    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/939447588389291325/2F0B4DB567C2923D8D27A28E4EB5C8BC7FE8435C/");
-    background-size: cover;
+  background-size: cover;
+  background-image: url("/static/home/Lava.jpg");
+  background-position: 2% 2%;
 	float: left;
 	width: 77%;
 	height: 200px;

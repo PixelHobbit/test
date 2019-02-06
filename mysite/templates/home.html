@@ -22,7 +22,7 @@
 	<!--	header start -->
 	<div class="section" id="header">
     <div id="header_part">
-      <img class="img-circle" src="https://steamuserimages-a.akamaihd.net/ugc/954087182940228186/45A9149556AC54A4CAB5D792C46B08C9F5DE8FAA/">
+      <img class="img-circle" src="/static/home/Pixel_Hobbit.jpg">
 		  <p>Pixel_Hobbit</p>
     </div>
 	</div>
@@ -68,7 +68,7 @@
     <div class="section" id="about">
       {% for notice in notice.all %}
         <h1>{{ notice.title }}</h1>
-        <h2>{{ notice.text }}</h2>
+        <h2>{{ notice.text|safe }}</h2>
         <h4 align=right style=" padding-right:50px;padding-top:50px;">{{ notice.date }}</h4>
       {% endfor %}
     </div>
@@ -80,16 +80,16 @@
     <p> >_< </p>
 	     <div>
              <a href="https://www.sololearn.com/Profile/7968452" target="_blank">
-                <img alt="SoloLearn" src="https://www.sololearn.com/Uploads/icons/sololearn.png" />
+                <img alt="SoloLearn" src="/static/home/sololearn.png" />
              </a>
              <a href="https://www.facebook.com/profile.php?id=100018161568922" target="_blank">
-                 <img alt="Facebook" src="https://www.sololearn.com/Uploads/icons/facebook.png"/>
+                 <img alt="Facebook" src="/static/home/facebook.png"/>
              </a>
              <a href="https://twitter.com/Hobbit233" target="_blank">
-                 <img alt="Twitter" src="https://www.sololearn.com/Uploads/icons/twitter.png" />
+                 <img alt="Twitter" src="/static/home/twitter.png" />
              </a>
              <a href="https://space.bilibili.com/33571988/#/index" target="_blank">
-                 <img alt="Blibli" src="https://steamuserimages-a.akamaihd.net/ugc/954087182942574811/F24CC12369630CB47FF2245D443AEB9CE266869B/" />
+                 <img alt="Blibli" src="/static/home/bilibili.jpg" />
              </a>
          </div>
 	 </div>

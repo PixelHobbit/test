@@ -34,8 +34,9 @@ li {
 /* header start */
 #header {
 	padding-top: 15px;
-    background-image: url("https://steamuserimages-a.akamaihd.net/ugc/913539890295741473/FACE7A1482305ECEB0A1D85041FD4B7C4DC59635/");
-    background-position: 20% 20%;
+  background-size: cover;
+    background-image: url("/static/image/blog.png");
+    background-position: 25% 25%;
 	float: left;
 	width: 77%;
 	height: 200px;

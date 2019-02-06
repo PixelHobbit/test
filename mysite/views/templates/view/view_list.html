@@ -61,7 +61,7 @@
   <div id="context">
           {% for view in views %}
               <div class="section" id="view_list">
-                <img src="{{view.image.url}}">
+                <img src="{{ view.image.url }}">
                   <h3 style="padding-top:15px"><a href="{% url 'view_detail' view.pk %}">{{ view.title }}</a></h3>
                   <p align= left>　
                     类别:<a href="{% url 'views_with_type' view.view_type.pk %}">{{ view.view_type }}</a>
