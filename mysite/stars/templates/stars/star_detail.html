@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Pixel_Hobbit's site|Stars|{{ star.title }}{% endblock %}
+{% block nav_stars_active %}active{% endblock %}
+
+{% load staticfiles %}
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'stars/stars.css' %}">
+{% endblock %}
+
+{# 页面内容 #}
+{% block content %}
+<div class="section" id="star_detail">
+  <h1 align=center style="padding-top:50px;">{{ star.title }}</h1>
+  <ul>
+      <li>发表日期：{{ star.date|date:"M d,Y" }}</li>
+      <br>
+      <li><a href=".">Back→</a></li>
+  </ul>
+  <div align=center>{{ star.text|safe }}</div>
+</div>
+
+{% endblock %}

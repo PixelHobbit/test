@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'read_statistics',
     'views',
     'share',
-    'notice'
+    'notice',
+    'stars',
 ]
 
 MIDDLEWARE = [
