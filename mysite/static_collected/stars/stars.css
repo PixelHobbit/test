@@ -1,0 +1,36 @@
+a {
+    color: gray;
+	text-decoration: none;
+}
+ a:hover:not(.active) {
+    color: indigo;
+}
+li {
+  list-style: none;
+}
+
+/* stars_list start */
+#stars_list {
+  width: 80%;
+  margin-left: 10%;
+  padding-bottom: 5%
+}
+#stars_list img {
+  margin-top: 5%;
+  margin-left: 7%;
+  border-radius: 50%;
+  height: 15%;
+  width: 15%;
+}
+/* stars_list end */
+
+/* star_detail start */
+#star_detail {
+  width: 70%;
+  margin: auto;
+  padding-bottom: 2%;
+}
+#star_detail  li {
+  list-style: none;
+}
+/* star_detail end */
